@@ -1,0 +1,6 @@
+ls
+echo Hola desde batch
+pwd
+cd /tmp
+pwd
+exit
