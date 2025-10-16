@@ -95,7 +95,9 @@ void execute_command()          // Executes using fork/exec
 ### Usage Example  
 
 ```bash
-cd SO-Lab2-20241/enunciado && cp ../wish . && ./test-wish.sh
+cd SO-Lab2-20241
+clang -Wall -Wextra -std=c11 -o reverse reverse.c
+cd enunciado && cp ../wish . && ./test-wish.sh
 ```
 ---
 
