@@ -1,38 +1,128 @@
-# Práctica 2 de laboratorio - API de Procesos #
+# Laboratory: Processes and Unix Shell
 
-## Instrucciones ##
-Antes de comenzar a trabajar en esta práctica se recomienda que lleve a cabo los siguientes pasos:
-1. Haga un fork de este repositorio.
-2. La persona que haga el fork agregue como colaborador a los compañeros de trabajo.
-3. Cada uno de los integrantes del equipo puede hacer una copia local del laboratorio con el fin de colaborar en su desarrollo.
-4. No olvide ir actualizando la práctica del laboratorio a medida que vaya avanzando en esta. Para el caso, vaya llevando a cabo los test proporsionados (tal y como se explicó en el laboratorio). Estos test serán el indicativo de cómo va su trabajo.
+> A comprehensive report documenting the development of a Unix shell implementation in C, focusing on process management and systems programming concepts.
 
+**Team Members:**
+- Estiven Ospina González
+- María Daniela Rodríguez Chacón
 
-## Componentes del laboratorio ##
+---
 
-El siguiente laboratorio esta compuesto por dos directorios principales los cuales contienen:
-1. **Ejercicios de refuerzo**: En este directorio hay varios ejercicios sencillos cuyo objetivo es reforzar los conceptos teóricos y prácticos relacionados con el manejo procesos ([link](./ejercicios_refuerzo)).
-2. **Enunciado**: Contiene el enunciado y las instrucciones de la práctica de laboratorio ([link](./enunciado)).
-   
-## Actividad a realizar ## 
-Para el siguiente laboratorio se deben realizar los siguientes ejercicios:
-1. Del directorio de [ejercicios de refuerzo](./ejercicios_refuerzo) realizar solo el **ejercicio 7** de la sección de **problemas de programación**.
-2. Realizar el **shell de unix** propuesto en la carpeta [enunciado](./enunciado) empleando los diferentes test que se brindan para tal fin.
+## Introduction
 
-## Material a la mano ##
+This laboratory reinforces theoretical and practical concepts related to process management in Unix/Linux operating systems using C programming language. The main deliverable is a functional Unix shell that executes commands and manages processes similarly to conventional Unix shells like bash.
 
-Adjunto con el presente laboratorio hay dos documentos de la UJI (Universitat Jaume I) muy buenos con los conceptos y con ejemplos que necesitan para el desarrollo la práctica. Estos documentos son:
-1. [Introducción a la programación con C](./s29.pdf)
-2. [100 ejercicios resueltos de Sistemas Operativos](./s30.pdf)
+---
 
-## Importante comprender ##
+## Objectives
 
-Para poder realizar la práctica es necesario comprender cabalmente los siguientes conceptos:
-1. API de procesos (**Su comprensión es fundamental ya que constituye el corazón del laboratorio**. A continuación se muestra el [link con teoria y ejemplos](https://github.com/dannymrock/UdeA-SO-Lab/tree/master/lab1)). 
-2. Manejo de argumentos por línea de comandos ([link con ejemplos](https://github.com/dannymrock/SO-Lab1-20201/tree/master/ejemplos/ejemplos_argc_argv)).
-3. Manejo de archivos en C ([link de la teoria](https://github.com/dannymrock/UdeA-SO-Lab/tree/master/lab0/lab0b/parte6))
-4. Manejo de la consola de linux (Es de utilidad conocer la filosofía de la consola de la línea de comandos para hacerse una idea de la funcionalidad básica que tendrá la consola a implementar, ya que esta última es una versión reducida de la primera. [Link de la teoria](https://github.com/dannymrock/UdeA-SO-Lab/tree/master/lab0/lab0a/consola_linux)).
-   
-Si no maneja estos conceptos; sobre el primero, por favor estúdielos con detenimiento, de la comprensión de estos depende el desarrollo de la práctica. También, revise la teoría más simple en caso de no creer tener la suficiente familiaridad con el lenguaje C. Es necesario la comprensión de los conceptos más básicos en C para poder manejar archivos, implementación de funciones, manejo de punteros y arreglos.
+### General Objective
+Develop a functional Unix shell in C that implements execution of internal and external commands, demonstrating mastery of the process API in Unix/Linux systems.
 
-Tenga además en cuenta que se agregan bastantes ejemplos con el fin de que los analice y comprenda. Si tiene dificultades para entenderlos pregunte sin pena en el foro del curso y vea los videos que allí se compartieron. Recuerden, No hay pregunta boba, bobo es el que no pregunta.
+### Specific Objectives
+- Understand and correctly apply the process API (fork, exec, wait)
+- Implement command-line argument handling
+- Develop file handling skills in C
+- Create a functional and user-friendly command-line interface
+- Complete exercise 7 from the programming problems section
+
+---
+
+## Concepts Studied
+
+### Process API
+The process API is the core of this laboratory:
+
+| Function | Purpose |
+|----------|---------|
+| **fork()** | Creates a new child process as a copy of the parent process |
+| **exec()** | Replaces the current process image with a new program |
+| **wait()** | Allows parent process to wait for child process completion |
+| **getpid()** | Obtains the identifier of the current process |
+| **getppid()** | Obtains the identifier of the parent process |
+
+### Command-Line Argument Handling
+Processing arguments passed through `argc` and `argv`, enabling dynamic command and parameter acceptance.
+
+### File Handling in C
+Implementation using standard C functions: `fopen()`, `fclose()`, `fread()`, `fwrite()`, and others.
+
+### Linux Console Philosophy
+Understanding how traditional shells (bash, sh) function to replicate their core functionality in a reduced form.
+
+---
+
+## Project Components
+
+### Unix Shell Implementation
+
+**Main Features:**
+- Read commands from standard input
+- Parse commands and arguments
+- Execute internal and external commands
+- Manage child processes
+- Basic error handling
+
+**Core Functions:**
+```c
+int main()                      // Main shell loop
+void read_command()             // Reads user input
+void parse_command()            // Tokenizes input
+void execute_command()          // Executes using fork/exec
+```
+---
+
+## Development & Testing
+
+### Development Workflow
+
+1. **Repository Setup**
+   ```bash
+   git clone https://github.com/danielarodriguez4/SO-Lab2-20241.git
+   ```
+
+2. **Collaboration**
+   - Forked the base repository
+   - Added team members as collaborators
+   - Created local copies for collaborative development
+   - Made regular commits throughout development
+
+3. **Testing Protocol**
+   - Ran provided test suite continuously
+   - Used test results as progress indicators
+   - Validated against expected behavior
+
+### Usage Example  
+
+```bash
+cd enunciado
+clang -Wall -Wextra -std=c11 -o wish wish.c
+cp ../wish .
+./wish #to start the new terminal
+```
+type 'exit' to exit the terminal Wish and run the tests using the following line:
+```bash
+./test-wish.sh
+```
+---
+
+## Learnings
+
+### Acquired Knowledge
+- Deep understanding of Unix/Linux process API
+- Practical skills for OS-level programming
+- Advanced C programming techniques
+- System process management
+
+### Developed Competencies
+- Process management and multitasking
+- Low-level C programming
+- Debugging and troubleshooting
+- Collaborative development with Git
+---
+
+## License
+
+[Specify your license - MIT, GPL, etc.]
+
+---
