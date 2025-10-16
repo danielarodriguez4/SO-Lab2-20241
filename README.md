@@ -95,14 +95,7 @@ void execute_command()          // Executes using fork/exec
 ### Usage Example  
 
 ```bash
-cd enunciado
-clang -Wall -Wextra -std=c11 -o wish wish.c
-cp ../wish .
-./wish #to start the new terminal
-```
-type 'exit' to exit the terminal Wish and run the tests using the following line:
-```bash
-./test-wish.sh
+cd SO-Lab2-20241/enunciado && cp ../wish . && ./test-wish.sh
 ```
 ---
 
