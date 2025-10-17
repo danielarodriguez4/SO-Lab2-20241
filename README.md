@@ -96,7 +96,7 @@ void execute_command()          // Executes using fork/exec
 
 ```bash
 cd SO-Lab2-20241
-clang -Wall -Wextra -std=c11 -o reverse reverse.c
+clang -Wall -Wextra -std=c11 -o wish wish.c
 cd enunciado && cp ../wish . && ./test-wish.sh
 ```
 ---
