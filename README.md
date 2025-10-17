@@ -30,17 +30,6 @@ Develop a functional Unix shell in C that implements execution of internal and e
 
 ## Concepts Studied
 
-### Process API
-The process API is the core of this laboratory:
-
-| Function | Purpose |
-|----------|---------|
-| **fork()** | Creates a new child process as a copy of the parent process |
-| **exec()** | Replaces the current process image with a new program |
-| **wait()** | Allows parent process to wait for child process completion |
-| **getpid()** | Obtains the identifier of the current process |
-| **getppid()** | Obtains the identifier of the parent process |
-
 ### Command-Line Argument Handling
 Processing arguments passed through `argc` and `argv`, enabling dynamic command and parameter acceptance.
 
@@ -62,15 +51,6 @@ Understanding how traditional shells (bash, sh) function to replicate their core
 - Execute internal and external commands
 - Manage child processes
 - Basic error handling
-
-**Core Functions:**
-```c
-int main()                      // Main shell loop
-void read_command()             // Reads user input
-void parse_command()            // Tokenizes input
-void execute_command()          // Executes using fork/exec
-```
----
 
 ## Development & Testing
 
@@ -97,7 +77,8 @@ void execute_command()          // Executes using fork/exec
 ```bash
 cd SO-Lab2-20241
 clang -Wall -Wextra -std=c11 -o wish wish.c
-cd enunciado && cp ../wish . && ./test-wish.sh
+cd enunciado && cp ../wish . && ./test-wish.sh #to run tests
+./wish #to start the new terminal
 ```
 ---
 
@@ -114,10 +95,4 @@ cd enunciado && cp ../wish . && ./test-wish.sh
 - Low-level C programming
 - Debugging and troubleshooting
 - Collaborative development with Git
----
-
-## License
-
-[Specify your license - MIT, GPL, etc.]
-
 ---
